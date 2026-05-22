@@ -1,21 +1,15 @@
+<div align="center">
+  
 # SoundPulse 🎵
 
-<p align="center">
-  <img src="SoundPulse_Banner.png" alt="SoundPulse Banner" width="750"/>
-</p>
-
+![Banner](SoundPulse_Banner.png)
 <p align="center">
   <strong>The Future of Premium Audio.</strong><br>
   A single-page music streaming and creator-upload platform where Spotify aesthetics meet SoundCloud community.
-</p>
+</p> 
 
-<p align="center">
-  <img src="https://img.shields.io/badge/UI-Glassmorphic-00e676?style=for-the-badge" alt="UI Style">
-  <img src="https://img.shields.io/badge/Architecture-Single--Page-white?style=for-the-badge" alt="Architecture">
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
-</p>
-
----
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/GamerFuryAction/SoundPulse?tab=MIT-1-ov-file)
+</div>
 
 ## 🚀 Overview
 
