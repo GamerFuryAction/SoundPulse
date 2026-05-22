@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoundPulse - Premium Spotify-SoundCloud Hybrid</title>
+  <meta name="description" content="Experience SoundPulse, a premium web music player fusing Spotify's visual aesthetics with SoundCloud's interactive canvas waveforms, timed comments, and custom creator uploads.">
+  <meta name="keywords" content="music player, audio visualizer, soundcloud, spotify, waveform player, creator upload">
+  <!-- Google Fonts: Outfit and Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <div id="app-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside id="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <span class="logo-text">SoundPulse</span>
+      </div>
+      
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active" data-view="home">
+          <i data-lucide="home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#" class="nav-item" data-view="search">
+          <i data-lucide="search"></i>
+          <span>Search</span>
+        </a>
+        <a href="#" class="nav-item" data-view="library">
+          <i data-lucide="library"></i>
+          <span>Your Library</span>
+        </a>
+        <a href="#" class="nav-item" data-view="upload">
+          <i data-lucide="upload-cloud"></i>
+          <span>Upload Track</span>
+        </a>
+        <a href="#" class="nav-item" data-view="profile">
+          <i data-lucide="user"></i>
+          <span>Profile</span>
+        </a>
+      </nav>
+      
+      <div class="divider"></div>
+      
+      <div class="sidebar-playlists">
+        <div class="section-header">
+          <span>Playlists</span>
+          <button class="add-playlist-btn" id="create-playlist-sidebar-btn" title="Create Playlist">
+            <i data-lucide="plus"></i>
+          </button>
+        </div>
+        
+        <div class="playlist-quick-links">
+          <div class="playlist-link-item" id="liked-songs-shortcut">
+            <div class="liked-heart-box">
+              <i data-lucide="heart" class="filled-heart"></i>
+            </div>
+            <span>Liked Songs</span>
+          </div>
+        </div>
+        
+        <div class="scrollable-playlist-list" id="sidebar-playlists-list">
+          <!-- Dynamic Playlists Added Here -->
+        </div>
+      </div>
+    </aside>
+    
+    <!-- MAIN CONTENT VIEWPORT -->
+    <main id="main-panel">
+      <!-- TOP NAV BAR -->
+      <header id="top-bar">
+        <div class="history-navigation">
+          <button class="nav-arrow-btn" id="nav-back-btn" title="Go back">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          <button class="nav-arrow-btn" id="nav-forward-btn" title="Go forward">
+            <i data-lucide="chevron-right"></i>
+          </button>
+        </div>
+        
+        <div class="user-profile-pill" id="user-profile-pill">
+          <div class="avatar-circle">
+            <span id="user-avatar-initial">C</span>
+          </div>
+          <span class="username" id="top-username">Creator</span>
+          <i data-lucide="chevron-down"></i>
+        </div>
+      </header>
+      
+      <!-- DYNAMIC CONTENT VIEW -->
+      <div id="main-content">
+        <!-- Rendered by ui.js -->
+      </div>
+    </main>
+    
+    <!-- RIGHT SIDEBAR (CONTEXT/COMMENTS/QUEUE) -->
+    <aside id="context-sidebar" class="collapsed">
+      <div class="sidebar-header">
+        <h3 id="context-sidebar-title">Play Queue</h3>
+        <button id="close-context-btn" class="icon-btn-secondary">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <div class="context-content" id="context-sidebar-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </aside>
+    
+    <!-- BOTTOM PLAYBACK CONTROLLER -->
+    <footer id="player-bar">
+      <!-- Track Details -->
+      <div class="now-playing-info">
+        <div class="track-cover-container">
+          <img src="" alt="Album Art" id="player-track-cover" class="track-cover-img hidden">
+          <div id="player-track-cover-placeholder" class="cover-placeholder">
+            <i data-lucide="music"></i>
+          </div>
+        </div>
+        <div class="track-meta">
+          <div class="track-title-container">
+            <span class="track-title" id="player-track-title">Select a track</span>
+          </div>
+          <span class="track-artist" id="player-track-artist">SoundPulse</span>
+        </div>
+        <button class="action-btn heart-btn" id="player-like-btn" title="Like Track">
+          <i data-lucide="heart" id="player-heart-icon"></i>
+        </button>
+      </div>
+      
+      <!-- Playback Controls -->
+      <div class="player-controls-container">
+        <div class="control-buttons">
+          <button class="control-btn" id="player-shuffle-btn" title="Shuffle">
+            <i data-lucide="shuffle"></i>
+          </button>
+          <button class="control-btn" id="player-prev-btn" title="Previous">
+            <i data-lucide="skip-back"></i>
+          </button>
+          <button class="control-btn play-pause-btn" id="player-play-btn" title="Play">
+            <i data-lucide="play" id="player-play-icon"></i>
+          </button>
+          <button class="control-btn" id="player-next-btn" title="Next">
+            <i data-lucide="skip-forward"></i>
+          </button>
+          <button class="control-btn" id="player-repeat-btn" title="Repeat">
+            <i data-lucide="repeat"></i>
+          </button>
+          <button class="control-btn visualizer-toggle-btn" id="player-visualizer-btn" title="Toggle Audio Visualizer">
+            <i data-lucide="activity"></i>
+          </button>
+        </div>
+        
+        <div class="progress-bar-container">
+          <span class="time-label" id="player-time-current">0:00</span>
+          
+          <div class="progress-bar-slider" id="player-progress-wrapper">
+            <!-- Dynamic visualizer canvas inside progress bar background! -->
+            <canvas id="mini-visualizer"></canvas>
+            <div class="progress-bar-track">
+              <div class="progress-bar-fill" id="player-progress-fill"></div>
+              <div class="progress-bar-handle" id="player-progress-handle"></div>
+            </div>
+          </div>
+          
+          <span class="time-label" id="player-time-total">0:00</span>
+        </div>
+      </div>
+      
+      <!-- Utility Controls -->
+      <div class="player-utilities">
+        <button class="action-btn" id="player-queue-btn" title="Queue">
+          <i data-lucide="list-music"></i>
+        </button>
+        <div class="volume-container">
+          <button class="action-btn" id="player-volume-btn" title="Mute/Unmute">
+            <i data-lucide="volume-2" id="player-volume-icon"></i>
+          </button>
+          <div class="volume-slider-wrapper">
+            <div class="volume-track" id="player-volume-track">
+              <div class="volume-fill" id="player-volume-fill" style="width: 80%;"></div>
+              <div class="volume-handle" id="player-volume-handle" style="left: 80%;"></div>
+            </div>
+          </div>
+        </div>
+        <button class="action-btn" id="player-fullscreen-btn" title="Full Screen Ambient Visualizer">
+          <i data-lucide="expand"></i>
+        </button>
+      </div>
+    </footer>
+    
+    <!-- FULLSCREEN VISUALIZER OVERLAY -->
+    <div id="fullscreen-visualizer-overlay" class="hidden">
+      <button id="close-fullscreen-btn" class="icon-btn-secondary">
+        <i data-lucide="minimize-2"></i>
+      </button>
+      <div class="fullscreen-track-info">
+        <img src="" alt="Album Art" id="fullscreen-track-cover">
+        <h1 id="fullscreen-track-title">Track Title</h1>
+        <p id="fullscreen-track-artist">Artist Name</p>
+      </div>
+      <canvas id="fullscreen-visualizer"></canvas>
+    </div>
+    
+    <!-- MODAL OVERLAYS (PLAYLIST CREATION / ALERTS) -->
+    <div id="playlist-modal" class="modal-overlay hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h2>Create Playlist</h2>
+          <button class="close-modal-btn" id="close-playlist-modal-btn">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <label for="playlist-name-input">Playlist Name</label>
+            <input type="text" id="playlist-name-input" placeholder="My Awesome Playlist" autocomplete="off">
+          </div>
+          <div class="input-group">
+            <label for="playlist-desc-input">Description (Optional)</label>
+            <textarea id="playlist-desc-input" placeholder="Add an optional description" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-flat" id="cancel-playlist-modal-btn">Cancel</button>
+          <button class="btn-primary" id="save-playlist-modal-btn">Create</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- APP SCRIPTS -->
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

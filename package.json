@@ -1,0 +1,24 @@
+{
+  "name": "soundpulse-app",
+  "version": "1.0.0",
+  "description": "SoundPulse - A premium Spotify-SoundCloud hybrid web application with custom audio waveforms, visualizers, and comments.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "music",
+    "spotify",
+    "soundcloud",
+    "waveform",
+    "visualizer",
+    "web-audio"
+  ],
+  "author": "Creator",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

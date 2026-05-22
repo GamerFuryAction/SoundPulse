@@ -2,7 +2,7 @@
   
 # SoundPulse 🎵
 
-![Banner](SoundPulse_Banner.png)
+![Banner](./Images/SoundPulse_Banner.png)
 <p align="center">
   <strong>The Future of Premium Audio.</strong><br>
   A single-page music streaming and creator-upload platform where Spotify aesthetics meet SoundCloud community.
