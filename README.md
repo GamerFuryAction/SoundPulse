@@ -31,8 +31,6 @@ By merging the sleek, dark, **glassmorphic UI aesthetics of Spotify** with the c
 
 ## 🛠️ Tech Stack
 
-> **Note:** Customize this section to match your exact repository dependencies.
-
 * **Frontend:** React.js / Next.js (or Vue/Svelte)
 * **Styling:** Tailwind CSS + Custom Glassmorphism Filters
 * **Audio Visuals:** Wavesurfer.js / Web Audio API
