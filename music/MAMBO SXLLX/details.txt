@@ -1,3 +1,4 @@
 Auhtor: Funtom
 Name: MAMBO SXLLX
 Song: music/MAMBO SXLLX/MAMBO SXLLX.mp3
+Cover:

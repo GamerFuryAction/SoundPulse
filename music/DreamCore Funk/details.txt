@@ -1,3 +1,4 @@
 Auhtor: Death
 Name: DREAMCORE Funk
 Song: music/DreamCore Funk/DREAMCORE_FUNK.mp3
+Cover: music/DreamCore Funk/DREAMCORE FUNK_Cover.png music/DreamCore Funk/DREAMCORE FUNK_Cover.png

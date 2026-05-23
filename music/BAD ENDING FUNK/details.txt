@@ -1,3 +1,4 @@
 Auhtor: Vainly
 Name: BAD ENDING FUNK - Shimuda (speed up)
 Song: music/BAD ENDING FUNK/BAD ENDING FUNK - Shimuda (speed up).mp3
+Cover: music/BAD ENDING FUNK/BAD ENDING FUNK - Shimuda (speed up)_Cover.png music/BAD ENDING FUNK/BAD ENDING FUNK - Shimuda (speed up)_Cover.png
